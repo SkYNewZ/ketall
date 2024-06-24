@@ -23,7 +23,7 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/cli-runtime/pkg/printers"
 
-	"github.com/SkYNewZ/ketall/internal/printer"
+	"github.com/SkYNewZ/ketall/pkg/printer"
 )
 
 func TestKAPrintFlags_ToPrinter(t *testing.T) {

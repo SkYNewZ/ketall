@@ -25,7 +25,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	"github.com/SkYNewZ/ketall/internal/util"
+	"github.com/SkYNewZ/ketall/pkg/util"
 )
 
 type FakeV1Obj struct {

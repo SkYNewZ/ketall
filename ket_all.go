@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package internal
+package ketall
 
 import (
 	"io"
@@ -23,10 +23,10 @@ import (
 	"k8s.io/cli-runtime/pkg/printers"
 	"k8s.io/klog/v2"
 
-	"github.com/SkYNewZ/ketall/internal/client"
-	"github.com/SkYNewZ/ketall/internal/filter"
-	"github.com/SkYNewZ/ketall/internal/options"
-	"github.com/SkYNewZ/ketall/internal/printer"
+	"github.com/SkYNewZ/ketall/pkg/client"
+	"github.com/SkYNewZ/ketall/pkg/filter"
+	"github.com/SkYNewZ/ketall/pkg/options"
+	"github.com/SkYNewZ/ketall/pkg/printer"
 )
 
 func KetAll(ketallOptions *options.KetallOptions) {

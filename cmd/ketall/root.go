@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cmd
+package main
 
 import (
 	"flag"
@@ -25,10 +25,10 @@ import (
 	"k8s.io/client-go/util/homedir"
 	"k8s.io/klog/v2"
 
+	"github.com/SkYNewZ/ketall"
 	"github.com/SkYNewZ/ketall/cmd/internal"
-	ketall "github.com/SkYNewZ/ketall/internal"
-	"github.com/SkYNewZ/ketall/internal/constants"
-	"github.com/SkYNewZ/ketall/internal/options"
+	"github.com/SkYNewZ/ketall/pkg/constants"
+	"github.com/SkYNewZ/ketall/pkg/options"
 )
 
 var (
@@ -76,7 +76,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-func Execute() error {
+func execute() error {
 	rootCmd.SetOut(ketallOptions.Streams.Out)
 	rootCmd.SetErr(ketallOptions.Streams.ErrOut)
 	return rootCmd.Execute()

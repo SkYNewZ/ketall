@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cmd
+package main
 
 import (
 	"os"
@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SkYNewZ/ketall/internal/options"
+	"github.com/SkYNewZ/ketall/pkg/options"
 )
 
 func TestMainHelp(t *testing.T) {
@@ -36,7 +36,7 @@ func TestMainHelp(t *testing.T) {
 	os.Args = []string{"ketall", "help"}
 	ketallOptions = newOpts
 
-	err := Execute()
+	err := execute()
 
 	assert.NoError(t, err)
 	assert.Contains(t, stdout.String(), "Available Commands:")
@@ -54,8 +54,7 @@ func TestMainUnknownCommand(t *testing.T) {
 	os.Args = []string{"ketall", "unknown"}
 	ketallOptions = newOpts
 
-	err := Execute()
-
+	err := execute()
 	assert.Error(t, err)
 }
 
@@ -70,7 +69,7 @@ func TestMainVersionCommand(t *testing.T) {
 	os.Args = []string{"ketall", "version", "--full"}
 	ketallOptions = newOpts
 
-	err := Execute()
+	err := execute()
 
 	assert.NoError(t, err)
 	assert.Contains(t, stdout.String(), "ketall:")

@@ -24,7 +24,7 @@ import (
 	"k8s.io/cli-runtime/pkg/printers"
 	"k8s.io/klog/v2"
 
-	"github.com/SkYNewZ/ketall/internal/printer"
+	"github.com/SkYNewZ/ketall/pkg/printer"
 )
 
 type KetallOptions struct {

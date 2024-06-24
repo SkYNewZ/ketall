@@ -21,12 +21,10 @@ import (
 
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 	"k8s.io/klog/v2"
-
-	"github.com/SkYNewZ/ketall/cmd"
 )
 
 func main() {
-	if err := cmd.Execute(); err != nil {
+	if err := execute(); err != nil {
 		klog.Error(err)
 		os.Exit(1)
 	}

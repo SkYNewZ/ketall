@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cmd
+package main
 
 import (
 	"text/template"
@@ -22,7 +22,7 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/klog/v2"
 
-	"github.com/SkYNewZ/ketall/internal/version"
+	"github.com/SkYNewZ/ketall/pkg/version"
 )
 
 const (

@@ -27,8 +27,8 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/klog/v2"
 
-	"github.com/SkYNewZ/ketall/internal/constants"
-	"github.com/SkYNewZ/ketall/internal/util"
+	"github.com/SkYNewZ/ketall/pkg/constants"
+	"github.com/SkYNewZ/ketall/pkg/util"
 )
 
 type Predicate = func(runtime.Object) bool
