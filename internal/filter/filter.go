@@ -21,13 +21,14 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/corneliusweig/ketall/internal/constants"
-	"github.com/corneliusweig/ketall/internal/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/klog/v2"
+
+	"github.com/SkYNewZ/ketall/internal/constants"
+	"github.com/SkYNewZ/ketall/internal/util"
 )
 
 type Predicate = func(runtime.Object) bool

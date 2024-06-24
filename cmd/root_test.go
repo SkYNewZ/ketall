@@ -20,8 +20,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/corneliusweig/ketall/internal/options"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/SkYNewZ/ketall/internal/options"
 )
 
 func TestMainHelp(t *testing.T) {

@@ -24,8 +24,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/corneliusweig/ketall/internal/constants"
-	"github.com/corneliusweig/ketall/internal/util"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 	"golang.org/x/sync/semaphore"
@@ -37,6 +35,9 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/cli-runtime/pkg/resource"
 	"k8s.io/klog/v2"
+
+	"github.com/SkYNewZ/ketall/internal/constants"
+	"github.com/SkYNewZ/ketall/internal/util"
 )
 
 var errEmpty = errors.New("no resources found")

@@ -20,11 +20,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/corneliusweig/ketall/internal/util"
 	"github.com/stretchr/testify/assert"
 	"k8s.io/apimachinery/pkg/api/meta"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
+
+	"github.com/SkYNewZ/ketall/internal/util"
 )
 
 type FakeV1Obj struct {
@@ -149,13 +150,13 @@ func TestParseHumanDuration(t *testing.T) {
 		{name: "one second", input: "1s", expected: 1},
 		{name: "seconds with large value", input: "120s", expected: 120},
 		{name: "one minute", input: "1m", expected: 60},
-		{name: "one hour", input: "1h", expected: (60 * 60)},
-		{name: "one day", input: "1d", expected: (24 * 60 * 60)},
-		{name: "one year", input: "1y", expected: (365 * 24 * 60 * 60)},
-		{name: "second and minute", input: "2m119s", expected: (2*60 + 119)},
-		{name: "minute and hour", input: "3h21m", expected: (3*60*60 + 21*60)},
-		{name: "hour and day", input: "4d7h", expected: (4*24*60*60 + 7*60*60)},
-		{name: "day and year", input: "1y364d", expected: (365*24*60*60 + 364*24*60*60)},
+		{name: "one hour", input: "1h", expected: 60 * 60},
+		{name: "one day", input: "1d", expected: 24 * 60 * 60},
+		{name: "one year", input: "1y", expected: 365 * 24 * 60 * 60},
+		{name: "second and minute", input: "2m119s", expected: 2*60 + 119},
+		{name: "minute and hour", input: "3h21m", expected: 3*60*60 + 21*60},
+		{name: "hour and day", input: "4d7h", expected: 4*24*60*60 + 7*60*60},
+		{name: "day and year", input: "1y364d", expected: 365*24*60*60 + 364*24*60*60},
 		{name: "complex time", input: "1y1d1h1m1s", expected: 31626061},
 		{name: "unknown unit", input: "7k", shouldErr: true},
 		{name: "no value", input: "d", shouldErr: true},

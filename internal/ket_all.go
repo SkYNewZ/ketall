@@ -20,12 +20,13 @@ import (
 	"io"
 	"text/tabwriter"
 
-	"github.com/corneliusweig/ketall/internal/client"
-	"github.com/corneliusweig/ketall/internal/filter"
-	"github.com/corneliusweig/ketall/internal/options"
-	"github.com/corneliusweig/ketall/internal/printer"
 	"k8s.io/cli-runtime/pkg/printers"
 	"k8s.io/klog/v2"
+
+	"github.com/SkYNewZ/ketall/internal/client"
+	"github.com/SkYNewZ/ketall/internal/filter"
+	"github.com/SkYNewZ/ketall/internal/options"
+	"github.com/SkYNewZ/ketall/internal/printer"
 )
 
 func KetAll(ketallOptions *options.KetallOptions) {

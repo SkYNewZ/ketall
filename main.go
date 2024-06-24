@@ -19,9 +19,10 @@ package main
 import (
 	"os"
 
-	"github.com/corneliusweig/ketall/cmd"
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 	"k8s.io/klog/v2"
+
+	"github.com/SkYNewZ/ketall/cmd"
 )
 
 func main() {

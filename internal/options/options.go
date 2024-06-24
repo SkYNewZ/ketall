@@ -20,10 +20,11 @@ import (
 	"bytes"
 	"os"
 
-	"github.com/corneliusweig/ketall/internal/printer"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/cli-runtime/pkg/printers"
 	"k8s.io/klog/v2"
+
+	"github.com/SkYNewZ/ketall/internal/printer"
 )
 
 type KetallOptions struct {
