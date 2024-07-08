@@ -17,6 +17,7 @@ limitations under the License.
 package ketall
 
 import (
+	"context"
 	"io"
 	"text/tabwriter"
 
@@ -29,17 +30,17 @@ import (
 	"github.com/SkYNewZ/ketall/pkg/printer"
 )
 
-func KetAll(ketallOptions *options.KetallOptions) {
-	all, err := client.GetAllServerResources(ketallOptions.GenericCliFlags)
+func KetAll(ctx context.Context, ketallOptions *options.KetallOptions) {
+	all, err := client.GetAllServerResources(ctx, ketallOptions)
 	if err != nil {
 		klog.Fatal(err)
 	}
 
-	filtered := filter.ApplyFilter(all)
+	filtered := filter.ApplyFilter(ketallOptions, all)
 
 	out := ketallOptions.Streams.Out
 	if filtered == nil {
-		io.WriteString(out, "No resources found.\n")
+		_, _ = io.WriteString(out, "No resources found.\n")
 		return
 	}
 

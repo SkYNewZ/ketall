@@ -22,27 +22,20 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	"github.com/spf13/viper"
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/klog/v2"
 
-	"github.com/SkYNewZ/ketall/pkg/constants"
+	"github.com/SkYNewZ/ketall/pkg/options"
 	"github.com/SkYNewZ/ketall/pkg/util"
 )
 
 type Predicate = func(runtime.Object) bool
 
-var (
-	// exposed for testing
-	getSince = getSinceViper
-)
-
-func ApplyFilter(o runtime.Object) runtime.Object {
+func ApplyFilter(opts *options.KetallOptions, o runtime.Object) runtime.Object {
 	predicates := make([]Predicate, 0, 1)
 
-	if since := getSince(); since != "" {
-		klog.V(2).Infof("Found %s argument %s", constants.FlagSince, since)
+	if since := opts.Since; since != "" {
 		predicate, err := AgePredicate(since)
 		if err != nil {
 			klog.Warningf("%s", errors.Wrapf(err, "skipping age filter"))
@@ -141,8 +134,4 @@ func ParseHumanDuration(since string) (time.Duration, error) {
 		}
 	}
 	return time.Duration(int64(time.Second) * seconds), nil
-}
-
-func getSinceViper() string {
-	return viper.GetString(constants.FlagSince)
 }
